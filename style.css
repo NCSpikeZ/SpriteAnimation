@@ -1,0 +1,208 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+ul {
+  list-style: none;
+}
+body {
+  padding: 0;
+  font-family: sans-serif;
+}
+button {
+  cursor: pointer;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.div-box{
+  border-radius: 5px;
+  border: 1px inset black;
+}
+
+#sidebar{
+  display: none;
+}
+
+#sidebar.open {
+  display: initial;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: 200px;
+  border-right: 1px inset black;
+}
+
+#sidebarBtnToggle{
+  background-color: transparent;
+  border: none;
+  width: 25px;
+  height: 30px;
+}
+
+#sidebarBtnToggle i{
+  display: flex;
+  position: absolute;
+  width: 18px;
+  height: 2px;
+  background-color: black;
+  transform-origin: center left;
+  transition: transform ease-in-out 200ms;
+}
+
+#sidebarBtnToggle :nth-child(1){
+  top: 455px;
+}
+
+#sidebarBtnToggle :nth-child(2){
+  top: 465px;
+}
+
+#sidebarBtnToggle :nth-child(3){
+  top: 475px;
+}
+
+#sidebarBtnToggle.burgeropen :nth-child(1){
+  position: absolute;
+  transform: rotate(45deg) scalex(1.6);
+}
+
+#sidebarBtnToggle.burgeropen :nth-child(2){
+  display: none;
+}
+
+#sidebarBtnToggle.burgeropen :nth-child(3){
+  transform: rotate(-45deg) scalex(1.6);
+}
+
+.rainbow-text{
+  margin-top: 40vh;
+  margin-left: 35%;
+  font-size: 14px;
+  background: linear-gradient( 89.7deg, rgba(223,0,0,1) 2.7%, rgba(214,91,0,1) 15.1%, rgba(233,245,0,1) 29.5%, rgba(23,255,17,1) 45.8%, rgba(29,255,255,1) 61.5%, rgba(5,17,255,1) 76.4%, rgba(202,0,253,1) 92.4% );
+  background-size: 400% 400%;
+  background-clip: text;
+  color: transparent;
+  animation: rainbow 3s ease infinite;
+}
+
+@keyframes rainbow {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.head{
+  display: flex;
+  width: 200px;
+  height: 55px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px 15px;
+}
+
+.box-sprite {
+  width: 300px;
+  height: 250px;
+  margin: -25% auto 0 -60%;
+  background:  url('/ryu-sprite-demo.png') no-repeat 0 0%;
+  animation: sprite 3s steps(45) infinite;
+}
+@keyframes sprite {
+  from { background-position: 0 0%; }
+  to { background-position: 0 100%; }
+}
+
+ .modal-overlay, 
+ .modal-overlay > .modal {
+   position: absolute;
+   top: 0; left: 0; right: 0; bottom: 0;
+   margin: auto;
+ }
+ 
+ .modal-overlay {
+   background-color: black;
+   visibility: hidden;
+   transition: background-color 2000ms ease-in-out;
+   z-index: 999;
+ }
+ 
+ .modal-overlay > .modal {
+   width: 100%;
+   max-width: 400px;
+   height: auto;
+   bottom: auto;
+   top: 50%;
+   z-index: 50;
+   padding: 20px;
+   background-color: #fff;
+   border: 1px solid grey;
+   border-radius: 8px;
+   opacity: 0;
+   transform: translateY(10%);
+   transition: all 600ms ease-in-out;
+ }
+ .modal > .modal-header {
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 20px;
+ }
+ 
+ .modal-overlay.open {
+   visibility: visible;
+   background-color: rgba(0, 0, 0, .4);
+ }
+ .modal-overlay.open > .modal {
+   opacity: 1;
+   transform: translateY(-50%);
+ }
+ 
+ .my-super-content {
+   text-align: center;
+ }
+ .my-super-content > * {
+   margin-bottom: 10px;
+ }
+ .my-super-content :nth-child(1) {
+   animation-delay: 500ms;
+ }
+ .my-super-content :nth-child(2) {
+   animation-delay: 1s;
+ }
+ .my-super-content :nth-child(3) {
+   animation-delay: 1500ms;
+ }
+ .my-super-content > h3 {
+   color: red;
+ }
+ @keyframes fadein {
+   from {
+     opacity: 0;
+   }
+   to {
+     opacity: 1;
+   }
+ }
+ 
+ .modal-overlay.open .my-super-content > * {
+   animation: fadein 2s;
+ }
+ 
